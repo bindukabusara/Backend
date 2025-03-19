@@ -23,6 +23,5 @@ router.get("/medications/:id", medicationController.getMedicationById);
 router.put("/medications/:id", upload.single("image"), medicationController.updateMedication);
 router.delete("/medications/:id", medicationController.deleteMedication);
 router.get("/medications/search", medicationController.searchMedications);
-router.delete("/medications/delete-expired", medicationController.deleteAllExpiredMedications); // New route
 
 module.exports = router;

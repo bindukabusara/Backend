@@ -99,14 +99,3 @@ exports.searchMedications = async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
-
-// Delete all expired medications
-exports.deleteAllExpiredMedications = async (req, res) => {
-  try {
-    const currentDate = new Date(); // Get the current date
-    const result = await Medication.deleteMany({ expireDate: { $lt: currentDate } }); // Delete medications with expireDate less than current date
-    res.json({ message: `${result.deletedCount} expired medications deleted successfully` });
-  } catch (error) {
-    res.status(500).json({ message: "Server error", error: error.message });
-  }
-};
