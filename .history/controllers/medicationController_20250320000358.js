@@ -100,6 +100,8 @@ exports.searchMedications = async (req, res) => {
   }
 };
 
+// Delete all expired medications
+const Medication = require("../models/Medication");
 
 // Delete all expired medications
 exports.deleteAllExpiredMedications = async (req, res) => {
