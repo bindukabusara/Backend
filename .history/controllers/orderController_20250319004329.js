@@ -46,17 +46,3 @@ exports.provideInstructions = async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
-
-// Add this new method
-exports.getConfirmedOrders = async (req, res) => {
-  try {
-    const orders = await Cart.find({ status: "confirmed" })
-      .populate("userId", "firstName lastName")
-      .populate("medicationId", "name image description");
-    res.status(200).json(orders);
-  } catch (error) {
-    res.status(500).json({ message: "Server error", error: error.message });
-  }
-};
-
-// Keep existing methods...
